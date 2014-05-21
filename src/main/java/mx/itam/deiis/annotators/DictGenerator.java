@@ -26,6 +26,6 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		String outFile ="src\\main\\resources\\data\\out.txt";
 		String objectFile = "src\\main\\resources\\data\\kmeans_model.obj";
 
-		new kmeansCreateDictionary().createDictionary(k, sourceFile, outFile, objectFile);
+		//new kmeansCreateDictionary().createDictionary(k, sourceFile, outFile, objectFile);
     }
 }

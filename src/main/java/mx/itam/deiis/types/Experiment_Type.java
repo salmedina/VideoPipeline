@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
+/* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Tue May 20 19:35:36 CDT 2014
+ * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * @generated */
 public class Experiment_Type extends Annotation_Type {
   /** @generated 
@@ -69,6 +69,30 @@ public class Experiment_Type extends Annotation_Type {
     ll_cas.ll_setIntValue(addr, casFeatCode_id, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_path;
+  /** @generated */
+  final int     casFeatCode_path;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public String getPath(int addr) {
+        if (featOkTst && casFeat_path == null)
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_path);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setPath(int addr, String v) {
+        if (featOkTst && casFeat_path == null)
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+    ll_cas.ll_setStringValue(addr, casFeatCode_path, v);}
+    
+  
 
 
 
@@ -84,6 +108,10 @@ public class Experiment_Type extends Annotation_Type {
  
     casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.Integer", featOkTst);
     casFeatCode_id  = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_id).getCode();
+
+ 
+    casFeat_path = jcas.getRequiredFeatureDE(casType, "path", "uima.cas.String", featOkTst);
+    casFeatCode_path  = (null == casFeat_path) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_path).getCode();
 
   }
 }

@@ -9,6 +9,12 @@
     <delegateAnalysisEngine key="dictGenerator-Descriptor">
       <import name="analysis-engines.dictGenerator-Descriptor"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="featExtractor-Descriptor">
+      <import name="analysis-engines.featExtractor-Descriptor"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="indexGenerator-Descriptor">
+      <import name="analysis-engines.indexGenerator-Descriptor"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>trainEngine</name>
@@ -20,7 +26,9 @@
     <flowConstraints>
       <fixedFlow>
         <node>initAnnotator-Descriptor</node>
-        <node>dictGenerator-Descriptor</node>
+        <node>featExtractor-Descriptor</node>
+      <node>dictGenerator-Descriptor</node>
+      <node>indexGenerator-Descriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

@@ -14,12 +14,12 @@ import org.apache.uima.jcas.tcas.Annotation;
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProjectZal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
-public class SourceFiles extends Annotation {
+public class DictFiles extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(SourceFiles.class);
+  public final static int typeIndexID = JCasRegistry.register(DictFiles.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class SourceFiles extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected SourceFiles() {/* intentionally empty block */}
+  protected DictFiles() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public SourceFiles(int addr, TOP_Type type) {
+  public DictFiles(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class SourceFiles extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public SourceFiles(JCas jcas) {
+  public DictFiles(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class SourceFiles extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public SourceFiles(JCas jcas, int begin, int end) {
+  public DictFiles(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -84,40 +84,18 @@ public class SourceFiles extends Annotation {
    * @return value of the feature 
    */
   public String getPath() {
-    if (SourceFiles_Type.featOkTst && ((SourceFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.SourceFiles");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((SourceFiles_Type)jcasType).casFeatCode_path);}
+    if (DictFiles_Type.featOkTst && ((DictFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((DictFiles_Type)jcasType).casFeatCode_path);}
     
   /** setter for path - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setPath(String v) {
-    if (SourceFiles_Type.featOkTst && ((SourceFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.SourceFiles");
-    jcasType.ll_cas.ll_setStringValue(addr, ((SourceFiles_Type)jcasType).casFeatCode_path, v);}    
-   
-    
-  //*--------------*
-  //* Feature: ext
-
-  /** getter for ext - gets 
-   * @generated
-   * @return value of the feature 
-   */
-  public String getExt() {
-    if (SourceFiles_Type.featOkTst && ((SourceFiles_Type)jcasType).casFeat_ext == null)
-      jcasType.jcas.throwFeatMissing("ext", "mx.itam.deiis.types.SourceFiles");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((SourceFiles_Type)jcasType).casFeatCode_ext);}
-    
-  /** setter for ext - sets  
-   * @generated
-   * @param v value to set into the feature 
-   */
-  public void setExt(String v) {
-    if (SourceFiles_Type.featOkTst && ((SourceFiles_Type)jcasType).casFeat_ext == null)
-      jcasType.jcas.throwFeatMissing("ext", "mx.itam.deiis.types.SourceFiles");
-    jcasType.ll_cas.ll_setStringValue(addr, ((SourceFiles_Type)jcasType).casFeatCode_ext, v);}    
+    if (DictFiles_Type.featOkTst && ((DictFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
+    jcasType.ll_cas.ll_setStringValue(addr, ((DictFiles_Type)jcasType).casFeatCode_path, v);}    
   }
 
     

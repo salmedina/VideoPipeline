@@ -16,7 +16,7 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 /** 
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * @generated */
-public class VWFiles_Type extends Annotation_Type {
+public class DictFiles_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,25 +26,25 @@ public class VWFiles_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (VWFiles_Type.this.useExistingInstance) {
+  			 if (DictFiles_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = VWFiles_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = DictFiles_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new VWFiles(addr, VWFiles_Type.this);
-  			   VWFiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new DictFiles(addr, DictFiles_Type.this);
+  			   DictFiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new VWFiles(addr, VWFiles_Type.this);
+        } else return new DictFiles(addr, DictFiles_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = VWFiles.typeIndexID;
+  public final static int typeIndexID = DictFiles.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.VWFiles");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.DictFiles");
  
   /** @generated */
   final Feature casFeat_path;
@@ -56,7 +56,7 @@ public class VWFiles_Type extends Annotation_Type {
    */ 
   public String getPath(int addr) {
         if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
     return ll_cas.ll_getStringValue(addr, casFeatCode_path);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class VWFiles_Type extends Annotation_Type {
    */    
   public void setPath(int addr, String v) {
         if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
     ll_cas.ll_setStringValue(addr, casFeatCode_path, v);}
     
   
@@ -77,7 +77,7 @@ public class VWFiles_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public VWFiles_Type(JCas jcas, Type casType) {
+  public DictFiles_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

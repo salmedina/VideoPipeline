@@ -10,16 +10,16 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
 
-/** 
+/** This annotations stores the result of an engine
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProjectZal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
-public class IndexFiles extends Annotation {
+public class EngineResult extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(IndexFiles.class);
+  public final static int typeIndexID = JCasRegistry.register(EngineResult.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class IndexFiles extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected IndexFiles() {/* intentionally empty block */}
+  protected EngineResult() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public IndexFiles(int addr, TOP_Type type) {
+  public EngineResult(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class IndexFiles extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public IndexFiles(JCas jcas) {
+  public EngineResult(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class IndexFiles extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public IndexFiles(JCas jcas, int begin, int end) {
+  public EngineResult(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -77,25 +77,25 @@ public class IndexFiles extends Annotation {
  
     
   //*--------------*
-  //* Feature: path
+  //* Feature: file
 
-  /** getter for path - gets 
+  /** getter for file - gets The file where the result should be stored
    * @generated
    * @return value of the feature 
    */
-  public String getPath() {
-    if (IndexFiles_Type.featOkTst && ((IndexFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.IndexFiles");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((IndexFiles_Type)jcasType).casFeatCode_path);}
+  public String getFile() {
+    if (EngineResult_Type.featOkTst && ((EngineResult_Type)jcasType).casFeat_file == null)
+      jcasType.jcas.throwFeatMissing("file", "mx.itam.deiis.types.EngineResult");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((EngineResult_Type)jcasType).casFeatCode_file);}
     
-  /** setter for path - sets  
+  /** setter for file - sets The file where the result should be stored 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setPath(String v) {
-    if (IndexFiles_Type.featOkTst && ((IndexFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.IndexFiles");
-    jcasType.ll_cas.ll_setStringValue(addr, ((IndexFiles_Type)jcasType).casFeatCode_path, v);}    
+  public void setFile(String v) {
+    if (EngineResult_Type.featOkTst && ((EngineResult_Type)jcasType).casFeat_file == null)
+      jcasType.jcas.throwFeatMissing("file", "mx.itam.deiis.types.EngineResult");
+    jcasType.ll_cas.ll_setStringValue(addr, ((EngineResult_Type)jcasType).casFeatCode_file, v);}    
   }
 
     

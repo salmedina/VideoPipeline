@@ -53,7 +53,7 @@ public class Indexer {
         }
    }
     
-    public boolean indexVisualWords(String vwPath, String fileExt) throws IOException {
+    private boolean indexVisualWords(String vwPath, String fileExt) throws IOException {
         
         
         File[] fileList = getFilesByExt(vwPath, fileExt);

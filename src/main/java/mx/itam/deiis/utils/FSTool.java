@@ -52,6 +52,14 @@ public class FSTool {
 		return (new File(dir)).mkdirs();
 	}
 	
+	public static boolean fileExists(String filePath) {
+		File f = new File(filePath);
+		if(f.exists() && !f.isDirectory())
+			return true;
+		
+		return false;
+	}
+	
 	public static boolean dirExists(String dir) {
 		Path path = FileSystems.getDefault().getPath(dir);
 		return Files.exists(path, LinkOption.NOFOLLOW_LINKS);

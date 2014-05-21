@@ -13,10 +13,10 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
-/** 
+/** This annotations stores the result of an engine
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * @generated */
-public class VWFiles_Type extends Annotation_Type {
+public class EngineResult_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,47 +26,47 @@ public class VWFiles_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (VWFiles_Type.this.useExistingInstance) {
+  			 if (EngineResult_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = VWFiles_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = EngineResult_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new VWFiles(addr, VWFiles_Type.this);
-  			   VWFiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new EngineResult(addr, EngineResult_Type.this);
+  			   EngineResult_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new VWFiles(addr, VWFiles_Type.this);
+        } else return new EngineResult(addr, EngineResult_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = VWFiles.typeIndexID;
+  public final static int typeIndexID = EngineResult.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.VWFiles");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.EngineResult");
  
   /** @generated */
-  final Feature casFeat_path;
+  final Feature casFeat_file;
   /** @generated */
-  final int     casFeatCode_path;
+  final int     casFeatCode_file;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public String getPath(int addr) {
-        if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
-    return ll_cas.ll_getStringValue(addr, casFeatCode_path);
+  public String getFile(int addr) {
+        if (featOkTst && casFeat_file == null)
+      jcas.throwFeatMissing("file", "mx.itam.deiis.types.EngineResult");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_file);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setPath(int addr, String v) {
-        if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
-    ll_cas.ll_setStringValue(addr, casFeatCode_path, v);}
+  public void setFile(int addr, String v) {
+        if (featOkTst && casFeat_file == null)
+      jcas.throwFeatMissing("file", "mx.itam.deiis.types.EngineResult");
+    ll_cas.ll_setStringValue(addr, casFeatCode_file, v);}
     
   
 
@@ -77,13 +77,13 @@ public class VWFiles_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public VWFiles_Type(JCas jcas, Type casType) {
+  public EngineResult_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_path = jcas.getRequiredFeatureDE(casType, "path", "uima.cas.String", featOkTst);
-    casFeatCode_path  = (null == casFeat_path) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_path).getCode();
+    casFeat_file = jcas.getRequiredFeatureDE(casType, "file", "uima.cas.String", featOkTst);
+    casFeatCode_file  = (null == casFeat_file) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_file).getCode();
 
   }
 }
