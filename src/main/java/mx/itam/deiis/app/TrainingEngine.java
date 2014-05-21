@@ -16,7 +16,6 @@ import org.apache.uima.util.XMLInputSource;
 public class TrainingEngine {
 
 	public static void main(String [] args) throws Exception {
-
 		String	sLine;
 		long	startTime = System.currentTimeMillis();
 

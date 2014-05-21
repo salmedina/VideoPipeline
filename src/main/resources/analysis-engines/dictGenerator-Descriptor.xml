@@ -20,6 +20,7 @@
       <capability>
         <inputs>
           <type allAnnotatorFeatures="true">mx.itam.deiis.types.DictPath</type>
+          <type allAnnotatorFeatures="true">mx.itam.deiis.types.Featfiles</type>
         </inputs>
         <outputs>
           <type allAnnotatorFeatures="true">mx.itam.deiis.types.Performance</type>
