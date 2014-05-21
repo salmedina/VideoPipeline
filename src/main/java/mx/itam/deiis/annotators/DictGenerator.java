@@ -16,13 +16,31 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 	
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
-		// SOURCE FILES - load and verify
-		FSIndex sourceIdx = aJCas.getAnnotationIndex(SourceFiles.type);
-		Iterator sourceIter = sourceIdx.iterator();
-		if(!sourceIter.hasNext()) {
-			System.out.println("Missing source files annotation");
+		//Obtain input annotators
+		// FEAT FILES - load and verify
+		FSIndex featIdx = aJCas.getAnnotationIndex(FeatFiles.type);
+		Iterator FeatIter = featIdx.iterator();
+		if(!FeatIter.hasNext()) {
+			System.out.println("Missing dictionary files annotation");
 		}
-		SourceFiles sourceFiles = (SourceFiles)sourceIter.next();
+		FeatFiles featFiles = (FeatFiles)featIter.next();
+		
+		// DICT FILES - load and verify
+		FSIndex dictIdx = aJCas.getAnnotationIndex(DictFiles.type);
+		Iterator dictIter = dictIdx.iterator();
+		if(!dictIter.hasNext()) {
+			System.out.println("Missing dictionary files annotation");
+		}
+		DictFiles dictFiles = (DictFiles)dictIter.next();
+		
+		//Verify paths
+		String featPath = featFiles.getPath();
+		if(!fsTool.dirExists(sourcePath)) {
+			System.out.println("Source directory does not exist.");
+		}
+		if(!fsTool.dirExists(featPath)) {
+			System.out.println("Features' directory does not exist.");
+		}
 		
 		long	startTime = System.currentTimeMillis();
 		int k = 60;
