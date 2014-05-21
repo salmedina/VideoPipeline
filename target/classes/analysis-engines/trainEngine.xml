@@ -6,7 +6,10 @@
     <delegateAnalysisEngine key="initAnnotator-Descriptor">
       <import name="analysis-engines.initAnnotator-Descriptor"/>
     </delegateAnalysisEngine>
-    </delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="dictGenerator-Descriptor">
+      <import name="analysis-engines.dictGenerator-Descriptor"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>trainEngine</name>
     <description/>
@@ -17,7 +20,8 @@
     <flowConstraints>
       <fixedFlow>
         <node>initAnnotator-Descriptor</node>
-        </fixedFlow>
+        <node>dictGenerator-Descriptor</node>
+      </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
     <capabilities>

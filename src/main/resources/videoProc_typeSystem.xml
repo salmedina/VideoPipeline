@@ -141,5 +141,10 @@
         </featureDescription>
       </features>
     </typeDescription>
+  <typeDescription>
+      <name>mx.itam.deiis.types.DictPath</name>
+      <description>This is where the visual word dictionary will be stored for the experiment</description>
+      <supertypeName>uima.cas.String</supertypeName>
+    </typeDescription>
   </types>
 </typeSystemDescription>
