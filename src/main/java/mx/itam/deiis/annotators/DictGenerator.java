@@ -1,9 +1,13 @@
 package mx.itam.deiis.annotators;
 
+import java.util.Iterator;
+
 import mx.itam.deiis.spark.*;
 import mx.itam.deiis.types.*;
+
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
+import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 
 
@@ -12,6 +16,14 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 	
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
+		// SOURCE FILES - load and verify
+		FSIndex sourceIdx = aJCas.getAnnotationIndex(SourceFiles.type);
+		Iterator sourceIter = sourceIdx.iterator();
+		if(!sourceIter.hasNext()) {
+			System.out.println("Missing source files annotation");
+		}
+		SourceFiles sourceFiles = (SourceFiles)sourceIter.next();
+		
 		long	startTime = System.currentTimeMillis();
 		int k = 60;
 		Dictionary dict;
