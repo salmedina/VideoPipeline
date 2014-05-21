@@ -1,25 +1,22 @@
 package mx.itam.deiis.annotators;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-import mx.itam.deiis.spark.*;
-import mx.itam.deiis.types.*;
+import mx.itam.deiis.spark.visualWordsTranslator;
+import mx.itam.deiis.types.Dictionary;
+import mx.itam.deiis.types.FeatFiles;
+import mx.itam.deiis.types.Performance;
+import mx.itam.deiis.types.VWFiles;
 import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.Stopwatch;
-
-/**
- * 
- * calling a class:
- * new kmeans(50,"data/example.sift");
- * object:
- * kmeans_spark$.MODULE$.callAll(50,"data/example.sift");
- *
- */
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
+
 
 public class VWTranslator extends JCasAnnotator_ImplBase{
 	@Override
@@ -51,7 +48,11 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		
 		//Verify paths
 		String featPath		= featFiles.getPath();
-		String sourceFile	= featPath + "\\*.sift";
+		//String sourceFile	= featPath + "\\*.sift";
+		String sourceFile	= featPath ;
+		String ext =".sift";
+		String newExt=".vw";
+		
 		String objectFile	= dictionary.getObj();
 		String outFile		= vwFiles.getPath();
 		if(!FSTool.dirExists(featPath)) {
@@ -64,6 +65,14 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		//Start taking record of time for performance
 		Stopwatch stopWatch = new Stopwatch(true);
 
+		List<String> resList = new ArrayList<String>();
+		resList=FSTool.getFilesByExt(sourceFile, ext);
+
+		for(int i=0; i< resList.size();i++){
+			new visualWordsTranslator().getVW(resList.get(i), objectFile, resList.get(i).replace(ext, newExt));
+		}
+
+		
 		visualWordsTranslator translator = new visualWordsTranslator();
 		translator.getVW(sourceFile, objectFile, outFile);
 		
