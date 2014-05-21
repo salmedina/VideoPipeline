@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
+/* First created by JCasGen Wed May 21 14:59:51 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+ * Updated by JCasGen Wed May 21 14:59:51 CDT 2014
  * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
 public class Experiment extends Annotation {
@@ -101,7 +101,7 @@ public class Experiment extends Annotation {
   //*--------------*
   //* Feature: path
 
-  /** getter for path - gets Absolute directory where experiment will be located		
+  /** getter for path - gets Absolute directory where experiment will be located
    * @generated
    * @return value of the feature 
    */
@@ -110,7 +110,7 @@ public class Experiment extends Annotation {
       jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Experiment_Type)jcasType).casFeatCode_path);}
     
-  /** setter for path - sets Absolute directory where experiment will be located		 
+  /** setter for path - sets Absolute directory where experiment will be located 
    * @generated
    * @param v value to set into the feature 
    */

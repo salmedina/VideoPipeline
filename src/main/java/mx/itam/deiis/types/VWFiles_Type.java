@@ -1,6 +1,5 @@
 
-/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
-/* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
+/* First created by JCasGen Wed May 21 14:59:51 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -15,11 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
-<<<<<<< HEAD
- * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
-=======
- * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
->>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
+ * Updated by JCasGen Wed May 21 14:59:51 CDT 2014
  * @generated */
 public class VWFiles_Type extends Annotation_Type {
   /** @generated 

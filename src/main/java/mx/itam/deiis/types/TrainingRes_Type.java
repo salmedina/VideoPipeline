@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
+/* First created by JCasGen Wed May 21 14:59:51 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 
 /** The outcoming result of the Training Engine
- * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
+ * Updated by JCasGen Wed May 21 14:59:51 CDT 2014
  * @generated */
 public class TrainingRes_Type extends EngineResult_Type {
   /** @generated 

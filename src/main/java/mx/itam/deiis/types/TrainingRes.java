@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
+/* First created by JCasGen Wed May 21 14:59:51 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -10,8 +10,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** The outcoming result of the Training Engine
- * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
- * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProjectZal/src/main/resources/videoProc_typeSystem.xml
+ * Updated by JCasGen Wed May 21 14:59:51 CDT 2014
+ * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
 public class TrainingRes extends EngineResult {
   /** @generated

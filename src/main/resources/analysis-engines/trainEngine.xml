@@ -1,64 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
-  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>false</primitive>  
-  <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="initAnnotator-Descriptor">
-      <import name="analysis-engines.initAnnotator-Descriptor"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="dictGenerator-Descriptor">
-      <import name="analysis-engines.dictGenerator-Descriptor"/>
-    </delegateAnalysisEngine>
-<<<<<<< HEAD
-  <delegateAnalysisEngine key="vwTranslator-Descriptor">
-      <import name="analysis-engines.vwTranslator-Descriptor"/>
-    </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="performanceResults-Descriptor">
-      <import name="analysis-engines.performanceResults-Descriptor"/>
-=======
-  <delegateAnalysisEngine key="featExtractor-Descriptor">
-      <import name="analysis-engines.featExtractor-Descriptor"/>
-    </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="indexGenerator-Descriptor">
-      <import name="analysis-engines.indexGenerator-Descriptor"/>
->>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
-    </delegateAnalysisEngine>
-  </delegateAnalysisEngineSpecifiers>
-  <analysisEngineMetaData>
-    <name>trainEngine</name>
-    <description/>
-    <version>1.0</version>
-    <vendor/>
-    <configurationParameters searchStrategy="language_fallback"/>
-    <configurationParameterSettings/>
-    <flowConstraints>
-      <fixedFlow>
-        <node>initAnnotator-Descriptor</node>
-<<<<<<< HEAD
-        <node>dictGenerator-Descriptor</node>
-      <node>vwTranslator-Descriptor</node>
-      <node>performanceResults-Descriptor</node>
-=======
-        <node>featExtractor-Descriptor</node>
-      <node>dictGenerator-Descriptor</node>
-      <node>indexGenerator-Descriptor</node>
->>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
-      </fixedFlow>
-    </flowConstraints>
-    <fsIndexCollection/>
-    <capabilities>
-      <capability>
-        <inputs/>
-        <outputs/>
-        <languagesSupported/>
-      </capability>
-    </capabilities>
-  <operationalProperties>
-      <modifiesCas>true</modifiesCas>
-      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
-      <outputsNewCASes>false</outputsNewCASes>
-    </operationalProperties>
-  </analysisEngineMetaData>
-  <resourceManagerConfiguration/>
+	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+	<primitive>false</primitive>
+
+	<delegateAnalysisEngineSpecifiers>
+		<delegateAnalysisEngine key="initAnnotator-Descriptor">
+			<import name="analysis-engines.initAnnotator-Descriptor"/>
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="featExtractor-Descriptor">
+			<import name="analysis-engines.featExtractor-Descriptor"/>
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="dictGenerator-Descriptor">
+			<import name="analysis-engines.dictGenerator-Descriptor"/>
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="vwTranslator-Descriptor">
+			<import name="analysis-engines.vwTranslator-Descriptor"/>
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="indexGenerator-Descriptor">
+			<import name="analysis-engines.indexGenerator-Descriptor"/>
+		</delegateAnalysisEngine>
+		<delegateAnalysisEngine key="performanceResults-Descriptor">
+			<import name="analysis-engines.performanceResults-Descriptor"/>
+		</delegateAnalysisEngine>
+
+	</delegateAnalysisEngineSpecifiers>
+
+	<analysisEngineMetaData>
+		<name>trainEngine</name>
+		<description/>
+		<version>1.0</version>
+		<vendor/>
+		<configurationParameters searchStrategy="language_fallback"/>
+		<configurationParameterSettings/>
+		<flowConstraints>
+			<fixedFlow>
+				<node>initAnnotator-Descriptor</node>
+				<node>featExtractor-Descriptor</node>
+				<node>dictGenerator-Descriptor</node>
+				<node>vwTranslator-Descriptor</node>
+				<node>indexGenerator-Descriptor</node>
+				<node>performanceResults-Descriptor</node>
+
+			</fixedFlow>
+		</flowConstraints>
+		<fsIndexCollection/>
+		<capabilities>
+			<capability>
+				<inputs/>
+				<outputs/>
+				<languagesSupported/>
+			</capability>
+		</capabilities>
+		<operationalProperties>
+			<modifiesCas>true</modifiesCas>
+			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+			<outputsNewCASes>false</outputsNewCASes>
+		</operationalProperties>
+	</analysisEngineMetaData>
+	<resourceManagerConfiguration/>
 </analysisEngineDescription>
