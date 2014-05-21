@@ -10,11 +10,19 @@
     <delegateAnalysisEngine key="dictGenerator-Descriptor">
       <import name="analysis-engines.dictGenerator-Descriptor"/>
     </delegateAnalysisEngine>
+<<<<<<< HEAD
   <delegateAnalysisEngine key="vwTranslator-Descriptor">
       <import name="analysis-engines.vwTranslator-Descriptor"/>
     </delegateAnalysisEngine>
   <delegateAnalysisEngine key="performanceResults-Descriptor">
       <import name="analysis-engines.performanceResults-Descriptor"/>
+=======
+  <delegateAnalysisEngine key="featExtractor-Descriptor">
+      <import name="analysis-engines.featExtractor-Descriptor"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="indexGenerator-Descriptor">
+      <import name="analysis-engines.indexGenerator-Descriptor"/>
+>>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -27,9 +35,15 @@
     <flowConstraints>
       <fixedFlow>
         <node>initAnnotator-Descriptor</node>
+<<<<<<< HEAD
         <node>dictGenerator-Descriptor</node>
       <node>vwTranslator-Descriptor</node>
       <node>performanceResults-Descriptor</node>
+=======
+        <node>featExtractor-Descriptor</node>
+      <node>dictGenerator-Descriptor</node>
+      <node>indexGenerator-Descriptor</node>
+>>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

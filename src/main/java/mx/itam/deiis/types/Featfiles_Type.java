@@ -14,9 +14,14 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
+<<<<<<< HEAD
  * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+=======
+ * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
+>>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
  * @generated */
 public class Featfiles_Type extends Annotation_Type {
+public class FeatFiles_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,25 +31,25 @@ public class Featfiles_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (Featfiles_Type.this.useExistingInstance) {
+  			 if (FeatFiles_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = Featfiles_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = FeatFiles_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new Featfiles(addr, Featfiles_Type.this);
-  			   Featfiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new FeatFiles(addr, FeatFiles_Type.this);
+  			   FeatFiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new Featfiles(addr, Featfiles_Type.this);
+        } else return new FeatFiles(addr, FeatFiles_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = Featfiles.typeIndexID;
+  public final static int typeIndexID = FeatFiles.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.Featfiles");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.FeatFiles");
  
   /** @generated */
   final Feature casFeat_featType;
@@ -57,6 +62,7 @@ public class Featfiles_Type extends Annotation_Type {
   public String getFeatType(int addr) {
         if (featOkTst && casFeat_featType == null)
       jcas.throwFeatMissing("featType", "mx.itam.deiis.types.Featfiles");
+      jcas.throwFeatMissing("featType", "mx.itam.deiis.types.FeatFiles");
     return ll_cas.ll_getStringValue(addr, casFeatCode_featType);
   }
   /** @generated
@@ -66,6 +72,7 @@ public class Featfiles_Type extends Annotation_Type {
   public void setFeatType(int addr, String v) {
         if (featOkTst && casFeat_featType == null)
       jcas.throwFeatMissing("featType", "mx.itam.deiis.types.Featfiles");
+      jcas.throwFeatMissing("featType", "mx.itam.deiis.types.FeatFiles");
     ll_cas.ll_setStringValue(addr, casFeatCode_featType, v);}
     
   
@@ -81,6 +88,7 @@ public class Featfiles_Type extends Annotation_Type {
   public String getPath(int addr) {
         if (featOkTst && casFeat_path == null)
       jcas.throwFeatMissing("path", "mx.itam.deiis.types.Featfiles");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.FeatFiles");
     return ll_cas.ll_getStringValue(addr, casFeatCode_path);
   }
   /** @generated
@@ -90,6 +98,7 @@ public class Featfiles_Type extends Annotation_Type {
   public void setPath(int addr, String v) {
         if (featOkTst && casFeat_path == null)
       jcas.throwFeatMissing("path", "mx.itam.deiis.types.Featfiles");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.FeatFiles");
     ll_cas.ll_setStringValue(addr, casFeatCode_path, v);}
     
   
@@ -102,6 +111,7 @@ public class Featfiles_Type extends Annotation_Type {
 	 * @param casType Type 
 	 */
   public Featfiles_Type(JCas jcas, Type casType) {
+  public FeatFiles_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

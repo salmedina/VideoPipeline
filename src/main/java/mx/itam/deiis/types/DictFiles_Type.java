@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
+/* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
 package mx.itam.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -14,9 +14,9 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+ * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * @generated */
-public class Experiment_Type extends Annotation_Type {
+public class DictFiles_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,49 +26,25 @@ public class Experiment_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (Experiment_Type.this.useExistingInstance) {
+  			 if (DictFiles_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = Experiment_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = DictFiles_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new Experiment(addr, Experiment_Type.this);
-  			   Experiment_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new DictFiles(addr, DictFiles_Type.this);
+  			   DictFiles_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new Experiment(addr, Experiment_Type.this);
+        } else return new DictFiles(addr, DictFiles_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = Experiment.typeIndexID;
+  public final static int typeIndexID = DictFiles.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.Experiment");
- 
-  /** @generated */
-  final Feature casFeat_id;
-  /** @generated */
-  final int     casFeatCode_id;
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @return the feature value 
-   */ 
-  public int getId(int addr) {
-        if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "mx.itam.deiis.types.Experiment");
-    return ll_cas.ll_getIntValue(addr, casFeatCode_id);
-  }
-  /** @generated
-   * @param addr low level Feature Structure reference
-   * @param v value to set 
-   */    
-  public void setId(int addr, int v) {
-        if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "mx.itam.deiis.types.Experiment");
-    ll_cas.ll_setIntValue(addr, casFeatCode_id, v);}
-    
-  
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("mx.itam.deiis.types.DictFiles");
  
   /** @generated */
   final Feature casFeat_path;
@@ -80,7 +56,7 @@ public class Experiment_Type extends Annotation_Type {
    */ 
   public String getPath(int addr) {
         if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
     return ll_cas.ll_getStringValue(addr, casFeatCode_path);
   }
   /** @generated
@@ -89,7 +65,7 @@ public class Experiment_Type extends Annotation_Type {
    */    
   public void setPath(int addr, String v) {
         if (featOkTst && casFeat_path == null)
-      jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+      jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
     ll_cas.ll_setStringValue(addr, casFeatCode_path, v);}
     
   
@@ -101,13 +77,9 @@ public class Experiment_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public Experiment_Type(JCas jcas, Type casType) {
+  public DictFiles_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
-
- 
-    casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.Integer", featOkTst);
-    casFeatCode_id  = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_id).getCode();
 
  
     casFeat_path = jcas.getRequiredFeatureDE(casType, "path", "uima.cas.String", featOkTst);

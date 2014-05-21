@@ -96,6 +96,28 @@ public class Experiment extends Annotation {
     if (Experiment_Type.featOkTst && ((Experiment_Type)jcasType).casFeat_id == null)
       jcasType.jcas.throwFeatMissing("id", "mx.itam.deiis.types.Experiment");
     jcasType.ll_cas.ll_setIntValue(addr, ((Experiment_Type)jcasType).casFeatCode_id, v);}    
+   
+    
+  //*--------------*
+  //* Feature: path
+
+  /** getter for path - gets Absolute directory where experiment will be located		
+   * @generated
+   * @return value of the feature 
+   */
+  public String getPath() {
+    if (Experiment_Type.featOkTst && ((Experiment_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Experiment_Type)jcasType).casFeatCode_path);}
+    
+  /** setter for path - sets Absolute directory where experiment will be located		 
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setPath(String v) {
+    if (Experiment_Type.featOkTst && ((Experiment_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.Experiment");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Experiment_Type)jcasType).casFeatCode_path, v);}    
   }
 
     

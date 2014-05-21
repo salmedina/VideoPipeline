@@ -16,6 +16,11 @@
           <description/>
           <rangeTypeName>uima.cas.Integer</rangeTypeName>
         </featureDescription>
+      <featureDescription>
+          <name>path</name>
+          <description>Absolute directory where experiment will be located		</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
@@ -36,7 +41,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>mx.itam.deiis.types.Featfiles</name>
+      <name>mx.itam.deiis.types.FeatFiles</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -148,9 +153,33 @@
       </features>
     </typeDescription>
   <typeDescription>
-      <name>mx.itam.deiis.types.DictPath</name>
-      <description>This is where the visual word dictionary will be stored for the experiment</description>
-      <supertypeName>uima.cas.String</supertypeName>
+      <name>mx.itam.deiis.types.EngineResult</name>
+      <description>This annotations stores the result of an engine</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>file</name>
+          <description>The file where the result should be stored</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>mx.itam.deiis.types.TrainingRes</name>
+      <description>The outcoming result of the Training Engine</description>
+      <supertypeName>mx.itam.deiis.types.EngineResult</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>mx.itam.deiis.types.DictFiles</name>
+      <description/>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>path</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
     </typeDescription>
   </types>
 </typeSystemDescription>

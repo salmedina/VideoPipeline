@@ -1,8 +1,5 @@
 package mx.itam.deiis.app;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.InputStreamReader;
 import java.net.URL;
 
 import mx.itam.deiis.utils.FSTool;
@@ -14,18 +11,21 @@ import org.apache.uima.cas.CAS;
 import org.apache.uima.util.XMLInputSource;
 import org.opencv.core.Core;
 
-public class TrainingEngine {
+public class QueryEngine {
 
-	public static void main(String [] args) throws Exception {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required for OpenCV to work
 		
 		String	sLine;
 		long	startTime = System.currentTimeMillis();
 
 		//Load AAE descriptor file
-		URL descUrl = TrainingEngine.class.getResource("/analysis-engines/trainEngine.xml");
+		URL descUrl = TrainingEngine.class.getResource("/analysis-engines/queryEngine.xml");
 	    if (descUrl == null) {
-	      throw new IllegalArgumentException("Error opening /analysis-engines/trainEngine.xml");
+	      throw new IllegalArgumentException("Error opening /analysis-engines/queryEngine.xml");
 	    }
 		// create AnalysisEngine		
 		XMLInputSource input = new XMLInputSource(descUrl);
@@ -33,8 +33,7 @@ public class TrainingEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
-	    //sLine = FSTool.readAllFile("E:\\VPSpace\\Configurations\\config.yaml");
-		sLine =FSTool.readAllFile("/resources/config.yaml");
+	    sLine = FSTool.readAllFile("E:\\VPSpace\\Configurations\\queryConfig.yaml");
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));
 		//while ((sLine = br.readLine()) != null)   {
@@ -52,5 +51,5 @@ public class TrainingEngine {
 		//Print out the whole execution time
 		double totalTime=(endTime-startTime)/1000.0;
 		System.out.println("Total time taken: "+totalTime);
-	} //end main()
+	}
 }

@@ -20,6 +20,8 @@
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV 2.9.9 NUEVA"/>
 	<classpathentry kind="lib" path="/Users/IBAGNOG/Desktop/scalaPart.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV"/>
+	<classpathentry kind="lib" path="E:/MCC/Semester 4/IIS/Workspace/VPProject/scalaPart.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -30,5 +32,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files/javacv-bin/javacpp.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/javacv-bin/javacv.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/javacv-bin/javacv-windows-x86_64.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -87,6 +87,9 @@ public class Featfiles extends Annotation {
     if (Featfiles_Type.featOkTst && ((Featfiles_Type)jcasType).casFeat_featType == null)
       jcasType.jcas.throwFeatMissing("featType", "mx.itam.deiis.types.Featfiles");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Featfiles_Type)jcasType).casFeatCode_featType);}
+    if (FeatFiles_Type.featOkTst && ((FeatFiles_Type)jcasType).casFeat_featType == null)
+      jcasType.jcas.throwFeatMissing("featType", "mx.itam.deiis.types.FeatFiles");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((FeatFiles_Type)jcasType).casFeatCode_featType);}
     
   /** setter for featType - sets  
    * @generated
@@ -96,6 +99,9 @@ public class Featfiles extends Annotation {
     if (Featfiles_Type.featOkTst && ((Featfiles_Type)jcasType).casFeat_featType == null)
       jcasType.jcas.throwFeatMissing("featType", "mx.itam.deiis.types.Featfiles");
     jcasType.ll_cas.ll_setStringValue(addr, ((Featfiles_Type)jcasType).casFeatCode_featType, v);}    
+    if (FeatFiles_Type.featOkTst && ((FeatFiles_Type)jcasType).casFeat_featType == null)
+      jcasType.jcas.throwFeatMissing("featType", "mx.itam.deiis.types.FeatFiles");
+    jcasType.ll_cas.ll_setStringValue(addr, ((FeatFiles_Type)jcasType).casFeatCode_featType, v);}    
    
     
   //*--------------*
@@ -109,6 +115,9 @@ public class Featfiles extends Annotation {
     if (Featfiles_Type.featOkTst && ((Featfiles_Type)jcasType).casFeat_path == null)
       jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.Featfiles");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Featfiles_Type)jcasType).casFeatCode_path);}
+    if (FeatFiles_Type.featOkTst && ((FeatFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.FeatFiles");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((FeatFiles_Type)jcasType).casFeatCode_path);}
     
   /** setter for path - sets  
    * @generated
@@ -118,6 +127,9 @@ public class Featfiles extends Annotation {
     if (Featfiles_Type.featOkTst && ((Featfiles_Type)jcasType).casFeat_path == null)
       jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.Featfiles");
     jcasType.ll_cas.ll_setStringValue(addr, ((Featfiles_Type)jcasType).casFeatCode_path, v);}    
+    if (FeatFiles_Type.featOkTst && ((FeatFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.FeatFiles");
+    jcasType.ll_cas.ll_setStringValue(addr, ((FeatFiles_Type)jcasType).casFeatCode_path, v);}    
   }
 
     

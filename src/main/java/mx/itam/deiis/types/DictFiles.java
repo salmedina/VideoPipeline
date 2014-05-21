@@ -1,6 +1,5 @@
 
 
-/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
 /* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
 package mx.itam.deiis.types;
 
@@ -12,20 +11,15 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
-<<<<<<< HEAD
- * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
- * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
-=======
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProjectZal/src/main/resources/videoProc_typeSystem.xml
->>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
  * @generated */
-public class VWFiles extends Annotation {
+public class DictFiles extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(VWFiles.class);
+  public final static int typeIndexID = JCasRegistry.register(DictFiles.class);
   /** @generated
    * @ordered 
    */
@@ -39,14 +33,14 @@ public class VWFiles extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected VWFiles() {/* intentionally empty block */}
+  protected DictFiles() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public VWFiles(int addr, TOP_Type type) {
+  public DictFiles(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -54,7 +48,7 @@ public class VWFiles extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public VWFiles(JCas jcas) {
+  public DictFiles(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -64,7 +58,7 @@ public class VWFiles extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public VWFiles(JCas jcas, int begin, int end) {
+  public DictFiles(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -90,18 +84,18 @@ public class VWFiles extends Annotation {
    * @return value of the feature 
    */
   public String getPath() {
-    if (VWFiles_Type.featOkTst && ((VWFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((VWFiles_Type)jcasType).casFeatCode_path);}
+    if (DictFiles_Type.featOkTst && ((DictFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((DictFiles_Type)jcasType).casFeatCode_path);}
     
   /** setter for path - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setPath(String v) {
-    if (VWFiles_Type.featOkTst && ((VWFiles_Type)jcasType).casFeat_path == null)
-      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.VWFiles");
-    jcasType.ll_cas.ll_setStringValue(addr, ((VWFiles_Type)jcasType).casFeatCode_path, v);}    
+    if (DictFiles_Type.featOkTst && ((DictFiles_Type)jcasType).casFeat_path == null)
+      jcasType.jcas.throwFeatMissing("path", "mx.itam.deiis.types.DictFiles");
+    jcasType.ll_cas.ll_setStringValue(addr, ((DictFiles_Type)jcasType).casFeatCode_path, v);}    
   }
 
     
