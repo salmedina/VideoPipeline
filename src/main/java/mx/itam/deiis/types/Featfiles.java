@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue May 20 19:35:36 CDT 2014
- * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProject/src/main/resources/videoProc_typeSystem.xml
+ * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+ * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
 public class Featfiles extends Annotation {
   /** @generated

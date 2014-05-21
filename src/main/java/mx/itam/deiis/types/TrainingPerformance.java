@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue May 20 19:35:36 CDT 2014
- * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProject/src/main/resources/videoProc_typeSystem.xml
+ * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+ * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
  * @generated */
 public class TrainingPerformance extends Annotation {
   /** @generated
@@ -162,6 +162,28 @@ public class TrainingPerformance extends Annotation {
     if (TrainingPerformance_Type.featOkTst && ((TrainingPerformance_Type)jcasType).casFeat_experiment == null)
       jcasType.jcas.throwFeatMissing("experiment", "mx.itam.deiis.types.TrainingPerformance");
     jcasType.ll_cas.ll_setRefValue(addr, ((TrainingPerformance_Type)jcasType).casFeatCode_experiment, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: indexGen
+
+  /** getter for indexGen - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public Performance getIndexGen() {
+    if (TrainingPerformance_Type.featOkTst && ((TrainingPerformance_Type)jcasType).casFeat_indexGen == null)
+      jcasType.jcas.throwFeatMissing("indexGen", "mx.itam.deiis.types.TrainingPerformance");
+    return (Performance)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((TrainingPerformance_Type)jcasType).casFeatCode_indexGen)));}
+    
+  /** setter for indexGen - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setIndexGen(Performance v) {
+    if (TrainingPerformance_Type.featOkTst && ((TrainingPerformance_Type)jcasType).casFeat_indexGen == null)
+      jcasType.jcas.throwFeatMissing("indexGen", "mx.itam.deiis.types.TrainingPerformance");
+    jcasType.ll_cas.ll_setRefValue(addr, ((TrainingPerformance_Type)jcasType).casFeatCode_indexGen, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     
