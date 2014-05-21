@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 import mx.itam.deiis.spark.*;
 import mx.itam.deiis.types.*;
+import mx.itam.deiis.utils.FSTool;
+import mx.itam.deiis.utils.Stopwatch;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -19,9 +21,9 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		//Obtain input annotators
 		// FEAT FILES - load and verify
 		FSIndex featIdx = aJCas.getAnnotationIndex(FeatFiles.type);
-		Iterator FeatIter = featIdx.iterator();
-		if(!FeatIter.hasNext()) {
-			System.out.println("Missing dictionary files annotation");
+		Iterator featIter = featIdx.iterator();
+		if(!featIter.hasNext()) {
+			System.out.println("Missing feature files annotation");
 		}
 		FeatFiles featFiles = (FeatFiles)featIter.next();
 		
@@ -35,47 +37,40 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		
 		//Verify paths
 		String featPath = featFiles.getPath();
-		if(!fsTool.dirExists(sourcePath)) {
-			System.out.println("Source directory does not exist.");
+		String dictPath = dictFiles.getPath();
+		if(!FSTool.dirExists(dictPath)) {
+			System.out.println("Dictionary directory does not exist.");
 		}
-		if(!fsTool.dirExists(featPath)) {
+		if(!FSTool.dirExists(featPath)) {
 			System.out.println("Features' directory does not exist.");
 		}
 		
-		long	startTime = System.currentTimeMillis();
-		int k = 60;
-		Dictionary dict;
-		Performance perf;
-		String annotatorID="Dictionary_Generator";
-		//Gaby Paths
-		String sourceFile = "src/main/resources/data/*.sift";
-		String outFile ="src/main/resources/data/dictionary.txt";
-		String objectFile = "src/main/resources/data/kmeans_model.obj";
-
-		/*	
-		//Zal Paths
-		String sourceFile = "src\\main\\resources\\data\\*.sift";
-		String outFile ="src\\main\\resources\\data\\dictionary.txt";
-		String objectFile = "src\\main\\resources\\data\\kmeans_model.obj";
-		 */
+		Stopwatch stopWatch = new Stopwatch(true);
+		int 	k = 60;
 		
-		new kmeansCreateDictionary().createDictionary(k, sourceFile, outFile, objectFile);
-		dict=new Dictionary(aJCas);
-		perf=new Performance(aJCas);
-		//dict.setBegin();
-		//dict.setEnd();
+		
+		String sourceFiles	= featPath + "\\*.sift";
+		String outFile		= dictPath + "\\dictionary.txt";
+		String objectFile	= dictPath + "\\kmeans_model.obj";
+
+		new kmeansCreateDictionary().createDictionary(k, sourceFiles, outFile, objectFile);
+		
+		// Crate DICTIONARY annotation
+		Dictionary dict=new Dictionary(aJCas);
 		dict.setK(k);
 		dict.setObj(objectFile);
 		dict.setTextFile(outFile);
 		dict.addToIndexes();
 
-		long endTime=System.currentTimeMillis();
-		double totalTime=(endTime-startTime)/1000.0;
+		stopWatch.Stop();
 		System.out.println("====================  Dictionary Generator  =====================");
-		System.out.println("Total time taken: "+totalTime+" segs"+"\n");
+		System.out.println("Total time taken: "+stopWatch.getTime()+" [s]"+"\n");
 		
+		// Generate PERFORMANCE annotation
+		Performance perf=new Performance(aJCas);
+		String annotatorID	= "Dictionary_Generator";
 		perf.setPhase(annotatorID);
-		perf.setExecTime(totalTime);
+		perf.setExecTime(stopWatch.getTime());
 		perf.addToIndexes();
     }
 }

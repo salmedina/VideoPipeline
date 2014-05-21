@@ -33,8 +33,8 @@ public class TrainingEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
-	    //sLine = FSTool.readAllFile("E:\\VPSpace\\Configurations\\config.yaml");
-		sLine =FSTool.readAllFile("/resources/config.yaml");
+	    sLine = FSTool.readAllFile("E:\\VPSpace\\Configurations\\config.yaml");
+		//sLine =FSTool.readAllFile("/resources/config.yaml");
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));
 		//while ((sLine = br.readLine()) != null)   {

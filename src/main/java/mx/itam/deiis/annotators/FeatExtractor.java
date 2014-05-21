@@ -6,6 +6,7 @@ import java.util.List;
 import mx.itam.deiis.types.*;
 import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.SIFTTool;
+import mx.itam.deiis.utils.Stopwatch;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -36,6 +37,7 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
 		
 		//Verify that paths exist
 		FSTool fsTool = new FSTool();
+		Stopwatch stopWatch = new Stopwatch(true);
 		
 		String sourceExt = sourceFiles.getExt();
 		String sourcePath = sourceFiles.getPath();
@@ -59,5 +61,16 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
 			featFile = featFile.replace(sourceExt, ".sift");
 			imgTool.extractFeatsToFile(source, featFile);
 		}
+		
+		stopWatch.Stop();
+		System.out.println("====================  Feat Extractor  =====================");
+		System.out.println("Total time taken: "+stopWatch.getTime()+" segs"+"\n");
+		
+		// Generate PERFORMANCE annotation
+		Performance perf=new Performance(aJCas);
+		String annotatorID	= "Feature_Extractor";
+		perf.setPhase(annotatorID);
+		perf.setExecTime(stopWatch.getTime());
+		perf.addToIndexes();
 	}
 }
