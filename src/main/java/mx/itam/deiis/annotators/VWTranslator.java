@@ -5,6 +5,7 @@ import java.util.Iterator;
 import mx.itam.deiis.spark.*;
 import mx.itam.deiis.types.*;
 import mx.itam.deiis.utils.FSTool;
+import mx.itam.deiis.utils.Stopwatch;
 
 /**
  * 
@@ -61,7 +62,7 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		}
 		
 		//Start taking record of time for performance
-		long	startTime = System.currentTimeMillis();
+		Stopwatch stopWatch = new Stopwatch(true);
 
 		visualWordsTranslator translator = new visualWordsTranslator();
 		translator.getVW(sourceFile, objectFile, outFile);
@@ -73,16 +74,15 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		vws.addToIndexes();
 		
 		//Check out execution time
-		long endTime=System.currentTimeMillis();
-		double totalTime=(endTime-startTime)/1000.0;
+		stopWatch.Stop();
 		System.out.println("====================  Visual Words Tranlator  =====================");
-		System.out.println("Total time taken: "+totalTime+" segs"+"\n");
+		System.out.println("Total time taken: "+stopWatch.getTime()+" [s]"+"\n");
 		
 		// Generate PERFORMANCE annotation
 		String annotatorID="Visual_Words_Translator";
 		Performance perf = new Performance(aJCas);
 		perf.setPhase(annotatorID);
-		perf.setExecTime(totalTime);
+		perf.setExecTime(stopWatch.getTime());
 		perf.addToIndexes();
     }
 }

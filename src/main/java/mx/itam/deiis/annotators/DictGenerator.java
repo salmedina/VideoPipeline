@@ -5,6 +5,7 @@ import java.util.Iterator;
 import mx.itam.deiis.spark.*;
 import mx.itam.deiis.types.*;
 import mx.itam.deiis.utils.FSTool;
+import mx.itam.deiis.utils.Stopwatch;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -44,10 +45,10 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 			System.out.println("Features' directory does not exist.");
 		}
 		
-		long	startTime = System.currentTimeMillis();
+		Stopwatch stopWatch = new Stopwatch(true);
 		int 	k = 60;
 		
-		String annotatorID	= "Dictionary_Generator";
+		
 		String sourceFiles	= featPath + "\\*.sift";
 		String outFile		= dictPath + "\\dictionary.txt";
 		String objectFile	= dictPath + "\\kmeans_model.obj";
@@ -61,15 +62,15 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		dict.setTextFile(outFile);
 		dict.addToIndexes();
 
-		long endTime=System.currentTimeMillis();
-		double totalTime=(endTime-startTime)/1000.0;
+		stopWatch.Stop();
 		System.out.println("====================  Dictionary Generator  =====================");
-		System.out.println("Total time taken: "+totalTime+" segs"+"\n");
+		System.out.println("Total time taken: "+stopWatch.getTime()+" [s]"+"\n");
 		
 		// Generate PERFORMANCE annotation
 		Performance perf=new Performance(aJCas);
+		String annotatorID	= "Dictionary_Generator";
 		perf.setPhase(annotatorID);
-		perf.setExecTime(totalTime);
+		perf.setExecTime(stopWatch.getTime());
 		perf.addToIndexes();
     }
 }

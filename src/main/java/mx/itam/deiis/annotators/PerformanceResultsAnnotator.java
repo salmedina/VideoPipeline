@@ -38,22 +38,22 @@ public class PerformanceResultsAnnotator extends JCasAnnotator_ImplBase{
 			switch(annotatorID){
 			case "Feature_Extractor":
 				tperf.setFeatExtract(perfs.get(i));
-				System.out.printf("Feature Extractor execTime: %.3f segs \n",perfs.get(i).getExecTime());
+				System.out.printf("Feature Extractor execTime: %.3f [s] \n",perfs.get(i).getExecTime());
 				break;
 
 			case "Dictionary_Generator":
 				tperf.setDictGen(perfs.get(i));
-				System.out.printf("Dictionary Generator execTime: %.3f segs \n",perfs.get(i).getExecTime());
+				System.out.printf("Dictionary Generator execTime: %.3f [s] \n",perfs.get(i).getExecTime());
 				break;
 
 			case "Visual_Words_Translator":
 				tperf.setVwTranslation(perfs.get(i));
-				System.out.printf("Visual Words Translator execTime: %.3f segs \n",perfs.get(i).getExecTime());
+				System.out.printf("Visual Words Translator execTime: %.3f [s] \n",perfs.get(i).getExecTime());
 				break;
 
 			case "Index_Generator":
 				tperf.setIndexGen(perfs.get(i));
-				System.out.printf("Index Generator execTime: %.3f segs \n",perfs.get(i).getExecTime());
+				System.out.printf("Index Generator execTime: %.3f [s] \n",perfs.get(i).getExecTime());
 				break;
 
 			default:
