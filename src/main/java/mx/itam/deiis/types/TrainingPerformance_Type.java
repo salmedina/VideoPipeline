@@ -1,4 +1,5 @@
 
+/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
 /* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
 package mx.itam.deiis.types;
 
@@ -14,7 +15,11 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
+<<<<<<< HEAD
+ * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+=======
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
+>>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
  * @generated */
 public class TrainingPerformance_Type extends Annotation_Type {
   /** @generated 
@@ -141,6 +146,30 @@ public class TrainingPerformance_Type extends Annotation_Type {
     ll_cas.ll_setRefValue(addr, casFeatCode_experiment, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_indexGen;
+  /** @generated */
+  final int     casFeatCode_indexGen;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public int getIndexGen(int addr) {
+        if (featOkTst && casFeat_indexGen == null)
+      jcas.throwFeatMissing("indexGen", "mx.itam.deiis.types.TrainingPerformance");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_indexGen);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setIndexGen(int addr, int v) {
+        if (featOkTst && casFeat_indexGen == null)
+      jcas.throwFeatMissing("indexGen", "mx.itam.deiis.types.TrainingPerformance");
+    ll_cas.ll_setRefValue(addr, casFeatCode_indexGen, v);}
+    
+  
 
 
 
@@ -168,6 +197,10 @@ public class TrainingPerformance_Type extends Annotation_Type {
  
     casFeat_experiment = jcas.getRequiredFeatureDE(casType, "experiment", "mx.itam.deiis.types.Experiment", featOkTst);
     casFeatCode_experiment  = (null == casFeat_experiment) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_experiment).getCode();
+
+ 
+    casFeat_indexGen = jcas.getRequiredFeatureDE(casType, "indexGen", "mx.itam.deiis.types.Performance", featOkTst);
+    casFeatCode_indexGen  = (null == casFeat_indexGen) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_indexGen).getCode();
 
   }
 }

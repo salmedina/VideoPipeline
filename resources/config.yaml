@@ -1,9 +1,0 @@
-# Config file for VideoPipeline AAE
-project-path: E:\VPSpace\Project1
-source-path: E:\VPSpace\Sources\Wolverine
-feat-path: E:\VPSpace\Project1\Feats
-img-file-ext: .jpg
-dict-path: E:\VPSpace\Project1\Dict
-vw-path: E:\VPSpace\Project1\VW
-index-path: E:\VPSpace\Project1\Index
-result-file: E:\VPSpace\Project1\training.res

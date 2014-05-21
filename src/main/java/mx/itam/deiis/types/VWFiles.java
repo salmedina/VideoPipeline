@@ -1,5 +1,6 @@
 
 
+/* First created by JCasGen Tue May 20 19:35:36 CDT 2014 */
 /* First created by JCasGen Wed May 21 04:24:52 CDT 2014 */
 package mx.itam.deiis.types;
 
@@ -11,8 +12,13 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
+<<<<<<< HEAD
+ * Updated by JCasGen Wed May 21 03:15:16 CDT 2014
+ * XML source: /Users/IBAGNOG/Documents/workspace/video-pipeline-zal/src/main/resources/videoProc_typeSystem.xml
+=======
  * Updated by JCasGen Wed May 21 04:24:52 CDT 2014
  * XML source: E:/MCC/Semester 4/IIS/Workspace/VPProjectZal/src/main/resources/videoProc_typeSystem.xml
+>>>>>>> ed0edfc3f8208b93cabc651989da6422edaac575
  * @generated */
 public class VWFiles extends Annotation {
   /** @generated

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <name>videoProc_typeSystem</name>
     <description/>
@@ -143,6 +144,11 @@
           <name>experiment</name>
           <description/>
           <rangeTypeName>mx.itam.deiis.types.Experiment</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>indexGen</name>
+          <description/>
+          <rangeTypeName>mx.itam.deiis.types.Performance</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>
