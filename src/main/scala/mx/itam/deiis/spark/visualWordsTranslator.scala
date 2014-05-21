@@ -23,10 +23,22 @@ class visualWordsTranslator {
 
     //make predictions - internally uses knn
     val predData = parsedData.map(x => kmModel2.predict(x))
+   //save predictions
+    //predData.saveAsTextFile(outFile)
 
-    //save predictions
-    predData.saveAsTextFile(outFile)
+    var bw = new BufferedWriter(new FileWriter(outFile))
 
+    //val predDataArray = predData.collect()
+    
+    for (j <- 0 until predData.collect().length) {
+    	//printf("%d ",predData.collect()(j))
+        bw.write(predData.collect()(j).toInt.toString)
+        bw.write(" ")
+     }
+    bw.close()
+
+
+ 
     //finish
     kmObjIn.close()
     sc.stop();
