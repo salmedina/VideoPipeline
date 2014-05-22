@@ -65,6 +65,11 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		EngineResult result = new EngineResult(aJCas);
 		result.setFile(configMap.get("result-file").toString());
 		result.addToIndexes();
+		
+		TrainingRes performance = new TrainingRes(aJCas);
+		performance.setPerformanceFile(configMap.get("performance-file").toString());
+		performance.addToIndexes();
+	
 	}
 	
 	private boolean VerifyConfigMap(Map configMap) {
@@ -72,7 +77,7 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		
 		String fields[] = {"experiment-id", "experiment-path", 
 				"source-path", "feat-path", "img-file-ext", 
-				"dict-path","vw-path", "index-path", "result-file"};
+				"dict-path","vw-path", "index-path", "result-file","performance-file"};
 		
 		for(String field : fields) {
 			if(configMap.get(field) == null) {
