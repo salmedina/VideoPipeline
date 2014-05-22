@@ -1,25 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName></annotatorImplementationName>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="queryAnnotator-Descriptor">
+      <import name="analysis-engines.queryAnnotator-Descriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="queryFeatExtractor-Descriptor">
+      <import name="analysis-engines.queryFeatExtractor-Descriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="queryVWTranslator-Descriptor">
+      <import name="analysis-engines.queryVWTranslator-Descriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="indexSeeker-Descriptor">
+      <import name="analysis-engines.indexSeeker-Descriptor"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>queryEngine</name>
-    <description></description>
+    <description/>
     <version>1.0</version>
-    <vendor></vendor>
-    <configurationParameters></configurationParameters>
-    <configurationParameterSettings></configurationParameterSettings>
-    <typeSystemDescription></typeSystemDescription>
-    <typePriorities></typePriorities>
-    <fsIndexCollection></fsIndexCollection>
+    <vendor/>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>queryAnnotator-Descriptor</node>
+        <node>queryFeatExtractor-Descriptor</node>
+        <node>queryVWTranslator-Descriptor</node>
+        <node>indexSeeker-Descriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs></inputs>
-        <outputs></outputs>
-        <languagesSupported></languagesSupported>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
       </capability>
     </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
   </analysisEngineMetaData>
-  <externalResourceDependencies></externalResourceDependencies>
-  <resourceManagerConfiguration></resourceManagerConfiguration>
+  <resourceManagerConfiguration/>
 </analysisEngineDescription>

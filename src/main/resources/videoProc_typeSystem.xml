@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <name>videoProc_typeSystem</name>
     <description/>
@@ -18,7 +17,7 @@
         </featureDescription>
       <featureDescription>
           <name>path</name>
-          <description>Absolute directory where experiment will be located		</description>
+          <description>Absolute directory where experiment will be located</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       </features>
@@ -180,6 +179,33 @@
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
       </features>
+    </typeDescription>
+  <typeDescription>
+      <name>mx.itam.deiis.types.Query</name>
+      <description>This annotation stores the info related to a visual query</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>imgFile</name>
+          <description>Describes the full path of the image query</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>featFile</name>
+          <description>This is where the query image file features are located</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>vwFile</name>
+          <description>This is where the query image file's visual words are located</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>mx.itam.deiis.types.QueryRes</name>
+      <description/>
+      <supertypeName>mx.itam.deiis.types.EngineResult</supertypeName>
     </typeDescription>
   </types>
 </typeSystemDescription>

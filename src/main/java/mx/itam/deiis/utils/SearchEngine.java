@@ -7,6 +7,7 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
@@ -37,6 +38,7 @@ public class SearchEngine {
 
   public int performSearch(String queryString) 
   throws IOException, ParseException {
+	BooleanQuery.setMaxClauseCount(Integer.MAX_VALUE);
     Query query = parser.parse(queryString);
     TopDocs results = searcher.search(query, 5 * HITS_PER_PAGE);
     ScoreDoc[] hits = results.scoreDocs;

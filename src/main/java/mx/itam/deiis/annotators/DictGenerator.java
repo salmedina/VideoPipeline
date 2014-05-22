@@ -46,7 +46,7 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		}
 		
 		Stopwatch stopWatch = new Stopwatch(true);
-		int 	k = 150;
+		int 	k = 100;
 		
 		String sourceFiles	= FSTool.mergePaths(featPath, "*.sift");
 		String outFile		= FSTool.mergePaths(dictPath, "dictionary.txt");

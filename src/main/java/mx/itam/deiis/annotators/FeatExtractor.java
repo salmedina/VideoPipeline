@@ -84,11 +84,16 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
             }
         	@Override
             public void run() {
-        		SIFTTool imgTool = new SIFTTool();
+        		
         		String featFile = Source.replace(SourcePath, FeatPath);
-    			featFile = featFile.replace(SourceExt, ".sift");
-    			imgTool.extractFeatsToFile(Source, featFile);
-    			System.out.printf("Feat extracted from: %s\n", Source);
+        		featFile = featFile.replace(SourceExt, ".sift");
+        		if(!FSTool.fileExists(featFile)) {
+	        		SIFTTool imgTool = new SIFTTool();
+	        		imgTool.extractFeatsToFile(Source, featFile);
+	    			System.out.printf("Feat extracted from: %s\n", Source);
+        		} else {
+        			System.out.printf("Feat already exists: %s\n", Source);
+        		}
             }
         }
 		try {

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>  <annotatorImplementationName>mx.itam.deiis.annotators.QueryAnnotator</annotatorImplementationName>
@@ -10,13 +9,22 @@
     <vendor/>
     <configurationParameters/>
     <configurationParameterSettings/>
-    <typeSystemDescription/>
+    <typeSystemDescription>
+      <imports>
+        <import name="videoProc_typeSystem"/>
+      </imports>
+    </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">mx.itam.deiis.types.QueryRes</type>
+          <type allAnnotatorFeatures="true">mx.itam.deiis.types.Query</type>
+          <type allAnnotatorFeatures="true">mx.itam.deiis.types.IndexFiles</type>
+          <type allAnnotatorFeatures="true">mx.itam.deiis.types.Dictionary</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

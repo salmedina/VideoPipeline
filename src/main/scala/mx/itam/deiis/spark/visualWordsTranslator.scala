@@ -42,6 +42,36 @@ class visualWordsTranslator {
     kmObjIn.close()
   }
   
+  def getSingleVW(sourceFile: String, objectFile: String, outFile:String) {
+    //parse data
+    val data = sc.textFile(sourceFile)
+    val parsedData = data.map(_.split(',').map(_.toDouble))
+
+    //retrieve kmeans model
+    val kmIn: FileInputStream = new FileInputStream(objectFile)
+    val kmObjIn: ObjectInputStream = new ObjectInputStream(kmIn)
+    val kmModel2: KMeansModel = kmObjIn.readObject().asInstanceOf[KMeansModel]
+
+    //make predictions - internally uses knn
+    val predData = parsedData.map(x => kmModel2.predict(x))
+   //save predictions
+    //predData.saveAsTextFile(outFile)
+
+    var bw = new BufferedWriter(new FileWriter(outFile))
+
+    //val predDataArray = predData.collect()
+    
+    for (j <- 0 until predData.collect().length) {
+    	//printf("%d ",predData.collect()(j))
+        bw.write(predData.collect()(j).toInt.toString)
+        bw.write(" ")
+     }
+    bw.close()
+
+    //finish
+    kmObjIn.close()
+  }
+  
   def close() {
 	  sc.stop();
   }
