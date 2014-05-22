@@ -167,6 +167,13 @@
       <name>mx.itam.deiis.types.TrainingRes</name>
       <description>The outcoming result of the Training Engine</description>
       <supertypeName>mx.itam.deiis.types.EngineResult</supertypeName>
+    <features>
+        <featureDescription>
+          <name>performanceFile</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
     </typeDescription>
     <typeDescription>
       <name>mx.itam.deiis.types.DictFiles</name>
