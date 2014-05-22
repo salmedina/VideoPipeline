@@ -1,5 +1,6 @@
 package mx.itam.deiis.annotators;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 
+import org.apache.commons.lang.StringUtils;
 
 public class VWTranslator extends JCasAnnotator_ImplBase{
 	@Override
@@ -48,44 +50,47 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		
 		//Verify paths
 		String featPath		= featFiles.getPath();
-		//String sourceFile	= featPath + "\\*.sift";
-		String sourceFile	= featPath ;
-		String ext =".sift";
-		String newExt=".vw";
-		
+		String vwPath		= vwFiles.getPath();
 		String objectFile	= dictionary.getObj();
-		String outFile		= vwFiles.getPath();
+		String siftExt 		= ".sift";
+		String vwExt		= ".vw";
+		
 		if(!FSTool.dirExists(featPath)) {
 			System.out.println("Features' directory does not exist.");
 		}
-		if(!FSTool.dirExists(outFile)) {
+		if(!FSTool.dirExists(vwPath)) {
 			System.out.println("VW directory does not exist.");
 		}
 		
 		//Start taking record of time for performance
 		Stopwatch stopWatch = new Stopwatch(true);
 
-		List<String> resList = new ArrayList<String>();
-		resList=FSTool.getFilesByExt(sourceFile, ext);
-
-		for(int i=0; i< resList.size();i++){
-			new visualWordsTranslator().getVW(resList.get(i), objectFile, resList.get(i).replace(ext, newExt));
+		List<String> siftList = new ArrayList<String>();
+		siftList = FSTool.getFilesByExt(featPath, siftExt);
+		String siftListStr = StringUtils.join(siftList, ",");
+		System.out.printf("SIFT FILES: %d\n", siftList.size());
+		System.out.println(siftListStr);
+		
+		visualWordsTranslator translator = new visualWordsTranslator(); 	
+		translator.getVW(siftListStr, objectFile, vwPath);
+		translator.close();
+		
+		String successFileStr = FSTool.mergePaths(vwPath, "_SUCCESS");
+		if(FSTool.fileExists(successFileStr)) {
+			ProcessSparkVW(siftList, featPath, vwPath);
+			File successFile = new File(successFileStr);
+			successFile.delete();
 		}
-
+		else {
+			System.out.println("SPARK FAILURE! Could not build vw files");
+		}
 		
-		visualWordsTranslator translator = new visualWordsTranslator();
-		translator.getVW(sourceFile, objectFile, outFile);
-		
-		// Generate VWFILES annotation
-		VWFiles vws;
-		vws = new VWFiles(aJCas);
-		vws.setPath(outFile);
-		vws.addToIndexes();
 		
 		//Check out execution time
 		stopWatch.Stop();
 		System.out.println("====================  Visual Words Tranlator  =====================");
 		System.out.println("Total time taken: "+stopWatch.getTime()+" [s]"+"\n");
+		System.out.println(siftListStr);
 		
 		// Generate PERFORMANCE annotation
 		String annotatorID="Visual_Words_Translator";
@@ -94,4 +99,30 @@ public class VWTranslator extends JCasAnnotator_ImplBase{
 		perf.setExecTime(stopWatch.getTime());
 		perf.addToIndexes();
     }
+
+	private void ProcessSparkVW(List<String> siftList, 
+								String featPath,
+								String vwPath) {
+		int pos = 0;
+		featPath += File.separator;
+		for( String siftFile : siftList ) {
+			//Rename the file
+			String sparkVWFile = String.format("part-%05d", pos);
+			String vwFileName = siftFile.replace(featPath, "").replace(".sift", ".vw");
+			File newFile = new File(FSTool.mergePaths(vwPath, vwFileName));
+			String sparkFileStr = FSTool.mergePaths(vwPath, sparkVWFile);
+			File sparkFile = new File(sparkFileStr);
+			
+			// Replace newLines with spaces
+			String contentStr = FSTool.readFileAsStr(sparkFileStr);
+			contentStr = contentStr.replace("\n", " ");
+			
+			if(!FSTool.printStrToFile(newFile, contentStr)) {
+				System.out.printf("Error saving %s", sparkFileStr);
+			}
+			sparkFile.delete();
+			
+			pos += 1;
+		}
+	}
 }

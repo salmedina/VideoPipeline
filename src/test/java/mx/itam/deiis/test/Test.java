@@ -1,5 +1,6 @@
 package mx.itam.deiis.test;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +13,12 @@ public class Test {
   public static void main(String[] args) {
 	  //FSToolTest();
 	  //YAML example
-	  OpenCVTest();
+	  //OpenCVTest();
 	  //YAMLTest();
+	  
+	File file1 = new File("E:\\VPSpace\\Experiment1");
+	File file2 = new File(file1, "Sources");
+	System.out.println(file2.getPath());
   }
   
   @SuppressWarnings("unused")

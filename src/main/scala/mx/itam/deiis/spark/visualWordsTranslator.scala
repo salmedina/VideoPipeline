@@ -7,8 +7,9 @@ import scala.Array.canBuildFrom
 
 class visualWordsTranslator {
 
-  //spark environment
-  val sc = new SparkContext("local", "kmeans_spark", "/usr/local/Cellar/spark-0.9.1/")
+//spark environment
+  val cores = Runtime.getRuntime().availableProcessors()
+  val sc = new SparkContext("local[" + cores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
 
   def getVW(sourceFile: String, objectFile: String, outFile:String) {
 
@@ -24,8 +25,8 @@ class visualWordsTranslator {
     //make predictions - internally uses knn
     val predData = parsedData.map(x => kmModel2.predict(x))
    //save predictions
-    //predData.saveAsTextFile(outFile)
-
+    predData.saveAsTextFile(outFile)
+/*
     var bw = new BufferedWriter(new FileWriter(outFile))
 
     //val predDataArray = predData.collect()
@@ -36,12 +37,12 @@ class visualWordsTranslator {
         bw.write(" ")
      }
     bw.close()
-
-
- 
+*/
     //finish
     kmObjIn.close()
-    sc.stop();
   }
-
+  
+  def close() {
+	  sc.stop();
+  }
 }

@@ -49,9 +49,9 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		int 	k = 60;
 		
 		
-		String sourceFiles	= featPath + "\\*.sift";
-		String outFile		= dictPath + "\\dictionary.txt";
-		String objectFile	= dictPath + "\\kmeans_model.obj";
+		String sourceFiles	= FSTool.mergePaths(featPath, "*.sift");
+		String outFile		= FSTool.mergePaths(dictPath, "dictionary.txt");
+		String objectFile	= FSTool.mergePaths(dictPath, "kmeans_model.obj");
 
 		new kmeansCreateDictionary().createDictionary(k, sourceFiles, outFile, objectFile);
 		

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
 	<frameworkImplementation>org.apache.uima.java</frameworkImplementation>
 	<primitive>false</primitive>
@@ -19,10 +18,10 @@
 		</delegateAnalysisEngine>
 		<delegateAnalysisEngine key="indexGenerator-Descriptor">
 			<import name="analysis-engines.indexGenerator-Descriptor"/>
-		</delegateAnalysisEngine>
+    </delegateAnalysisEngine>
 		<delegateAnalysisEngine key="performanceResults-Descriptor">
 			<import name="analysis-engines.performanceResults-Descriptor"/>
-		</delegateAnalysisEngine>
+    </delegateAnalysisEngine>
 
 	</delegateAnalysisEngineSpecifiers>
 

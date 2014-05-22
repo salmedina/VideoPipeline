@@ -14,6 +14,11 @@ import org.apache.commons.io.FileUtils;
 
 public class FSTool {
 
+	public static String mergePaths(String pathA, String pathB) {
+		File file2 = new File(new File(pathA), pathB);
+		return file2.getPath();
+	}
+	
 	public static int importToProject(String sourceDir, String projectDir) {
 		
 		return -1;
@@ -194,7 +199,7 @@ public class FSTool {
 		return resList;
 	}
 	
-	public static String readAllFile(String strFile)
+	public static String readFileAsStr(String strFile)
     {
        File file = new File(strFile);
        URI uri = file.toURI();
@@ -208,4 +213,23 @@ public class FSTool {
     
        return new String(bytes);
     }
+	
+	public static boolean printStrToFile(File file, String text) {
+		try{
+			// if file doesn't exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(text);
+			bw.close();
+		}
+		catch(IOException e) {
+			System.out.println(e.toString());
+			return false;
+		}
+		return true;
+	}
 }

@@ -60,6 +60,7 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
 			featFile = source.replace(sourcePath, featPath);
 			featFile = featFile.replace(sourceExt, ".sift");
 			imgTool.extractFeatsToFile(source, featFile);
+			System.out.printf("Feat extracted from: %s\n", source);
 		}
 		
 		stopWatch.Stop();
