@@ -2,6 +2,9 @@ package mx.itam.deiis.annotators;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import mx.itam.deiis.types.*;
 import mx.itam.deiis.utils.FSTool;
@@ -53,6 +56,7 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
 		//Obtain the list of files from source path
 		List<String> sourceList = fsTool.getFilesByExt(sourcePath, sourceExt);
 		
+		/*
 		//Extract their features and save them in the feature path
 		SIFTTool imgTool = new SIFTTool();
 		String featFile = "";
@@ -62,6 +66,46 @@ public class FeatExtractor extends JCasAnnotator_ImplBase{
 			imgTool.extractFeatsToFile(source, featFile);
 			System.out.printf("Feat extracted from: %s\n", source);
 		}
+		*/
+		
+		// PARALLELIZE EXTRACTION		
+		ExecutorService exec = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() - 1);
+		//Auxiliary class
+		class OneShot implements Runnable{
+            String Source;
+            String SourcePath;
+            String FeatPath;
+            String SourceExt;
+            public OneShot(String source, String sourcePath, String featPath, String sourceExt) {
+            	Source		= source;
+            	SourcePath	= sourcePath;
+            	FeatPath	= featPath;
+            	SourceExt	= sourceExt;
+            }
+        	@Override
+            public void run() {
+        		SIFTTool imgTool = new SIFTTool();
+        		String featFile = Source.replace(SourcePath, FeatPath);
+    			featFile = featFile.replace(SourceExt, ".sift");
+    			imgTool.extractFeatsToFile(Source, featFile);
+    			System.out.printf("Feat extracted from: %s\n", Source);
+            }
+        }
+		try {
+		    for (final String source : sourceList) {
+		        exec.submit(new OneShot(source, sourcePath, featPath, sourceExt) );
+		    }
+		} finally {
+		    exec.shutdown();
+		}
+		
+		//Await for all threads to finish
+		try {
+		  exec.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+		} catch (InterruptedException e) {
+			System.out.println("PARALLEL ERROR! Feat extractors timedout");
+		}
+		
 		
 		stopWatch.Stop();
 		System.out.println("====================  Feat Extractor  =====================");

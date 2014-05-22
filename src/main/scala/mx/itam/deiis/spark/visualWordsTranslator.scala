@@ -8,8 +8,8 @@ import scala.Array.canBuildFrom
 class visualWordsTranslator {
 
 //spark environment
-  val cores = Runtime.getRuntime().availableProcessors()
-  val sc = new SparkContext("local[" + cores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
+  val usedCores = Runtime.getRuntime().availableProcessors() - 1
+  val sc = new SparkContext("local[" + usedCores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
 
   def getVW(sourceFile: String, objectFile: String, outFile:String) {
 

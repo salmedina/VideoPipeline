@@ -14,8 +14,8 @@ import org.apache.spark.mllib.clustering.KMeansModel
 class kmeansCreateDictionary {
 
   //spark environment
-  val cores = Runtime.getRuntime().availableProcessors()
-  val sc = new SparkContext("local[" + cores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
+  val usedCores = Runtime.getRuntime().availableProcessors() - 1 
+  val sc = new SparkContext("local[" + usedCores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
   //val sc = new SparkContext("local", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
   // master, appName, sparkHome, jars required
   val maxIter = 50
@@ -55,7 +55,5 @@ class kmeansCreateDictionary {
     //finish
     kmObjOut.close()
     sc.stop();
-
   }
-
 }
