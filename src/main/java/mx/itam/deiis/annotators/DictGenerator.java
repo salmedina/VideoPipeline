@@ -18,6 +18,7 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 	
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
+		System.gc();
 		//Obtain input annotators
 		// FEAT FILES - load and verify
 		FSIndex featIdx = aJCas.getAnnotationIndex(FeatFiles.type);
@@ -46,7 +47,7 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		}
 		
 		Stopwatch stopWatch = new Stopwatch(true);
-		int 	k = 100;
+		int 	k = 500;
 		
 		String sourceFiles	= FSTool.mergePaths(featPath, "*.sift");
 		String outFile		= FSTool.mergePaths(dictPath, "dictionary.txt");

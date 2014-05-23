@@ -17,6 +17,16 @@ import org.opencv.core.Core;
 public class TrainingEngine {
 
 	public static void main(String [] args) throws Exception {
+		if(args.length < 1) {
+			System.out.println("Usage: Training <config_file>");
+			System.exit(-1);
+		}
+		String configFile = args[0];
+		if(!FSTool.fileExists(configFile)) {
+			System.out.printf("Configuration file: %s does not exist\n", configFile);
+			System.exit(-1);
+		}
+		
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required for OpenCV to work
 		
 		String	sLine;
@@ -33,7 +43,7 @@ public class TrainingEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
-	    sLine = FSTool.readFileAsStr("E:\\VPSpace\\Configurations\\config3.yaml");
+	    sLine = FSTool.readFileAsStr(configFile);
 		//sLine =FSTool.readAllFile("/resources/config.yaml");
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));

@@ -4,20 +4,23 @@ import java.io.BufferedWriter
 import java.io.FileOutputStream
 import java.io.FileWriter
 import java.io.ObjectOutputStream
-
 import scala.Array.canBuildFrom
-
 import org.apache.spark.SparkContext
 import org.apache.spark.mllib.clustering.KMeans
 import org.apache.spark.mllib.clustering.KMeansModel
+import org.apache.spark.SparkConf
 
 class kmeansCreateDictionary {
 
   //spark environment
   val usedCores = Runtime.getRuntime().availableProcessors() - 1 
-  val sc = new SparkContext("local[" + usedCores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
+  val conf = new SparkConf().setMaster("local[" + usedCores + "]").setAppName("kmeans++").set("spark.executor.memory", "2g")
+  
+  
+  //val sc = new SparkContext("local[" + usedCores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
   //val sc = new SparkContext("local", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
   // master, appName, sparkHome, jars required
+ val sc = new SparkContext(conf)
   val maxIter = 50
   var id = 0
 

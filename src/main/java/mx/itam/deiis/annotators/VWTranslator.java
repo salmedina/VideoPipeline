@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringUtils;
 public class VWTranslator extends JCasAnnotator_ImplBase{
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
+		System.gc();
 		//Obtain input annotators
 		// FEAT FILES - load and verify
 		FSIndex featIdx = aJCas.getAnnotationIndex(FeatFiles.type);

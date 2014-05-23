@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mx.itam.deiis.types.*;
+import mx.itam.deiis.utils.FSTool;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -28,12 +29,25 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		}
 		
 		//Load values and build initial annotations
+		String experimentPath;
+		String featPath;
+		String dictPath;
+		String vwPath;
+		String indexPath;
+		String performanceFile;
+		String resultFile;
+		
 		// EXPERIMENT
+		experimentPath = configMap.get("experiment-path").toString();
 		Experiment experiment = new Experiment(aJCas);
 		experiment.setId(
 				Integer.parseInt(configMap.get("experiment-id").toString()));
-		experiment.setPath(configMap.get("experiment-path").toString());
+		experiment.setPath(experimentPath);
 		experiment.addToIndexes();
+		if(!CheckPathConsistency(experimentPath)) {
+			System.out.println("Experiment path could not be created");
+			System.exit(-1);
+		}
 		
 		// SOURCE FILES
 		SourceFiles sourceFiles = new SourceFiles(aJCas);
@@ -42,32 +56,55 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		sourceFiles.addToIndexes();
 		
 		// FEAT FILES
+		featPath = FSTool.mergePaths(experimentPath, configMap.get("feat-path").toString());
 		FeatFiles featFiles = new FeatFiles(aJCas);
-		featFiles.setPath(configMap.get("feat-path").toString());
+		featFiles.setPath(featPath);
 		featFiles.addToIndexes();
+		if(!CheckPathConsistency(featPath)) {
+			System.out.println("Features path could not be created");
+			System.exit(-1);
+		}
 		
 		// DICT PATH
+		dictPath = FSTool.mergePaths(experimentPath, configMap.get("dict-path").toString());
 		DictFiles dictFiles= new DictFiles(aJCas);
-		dictFiles.setPath(configMap.get("dict-path").toString());
+		dictFiles.setPath(dictPath);
 		dictFiles.addToIndexes();
+		if(!CheckPathConsistency(dictPath)) {
+			System.out.println("Dictionary path could not be created");
+			System.exit(-1);
+		}
 		
 		//VW FILES
+		vwPath = FSTool.mergePaths(experimentPath, configMap.get("vw-path").toString());
 		VWFiles vwFiles = new VWFiles(aJCas);
-		vwFiles.setPath(configMap.get("vw-path").toString());
+		vwFiles.setPath(vwPath);
 		vwFiles.addToIndexes();
+		if(!CheckPathConsistency(vwPath)) {
+			System.out.println("Visual words path could not be created");
+			System.exit(-1);
+		}
 		
 		// INDEX FILES
+		indexPath = FSTool.mergePaths(experimentPath, configMap.get("index-path").toString());
 		IndexFiles indexFiles = new IndexFiles(aJCas);
-		indexFiles.setPath(configMap.get("index-path").toString());
+		indexFiles.setPath(indexPath);
 		indexFiles.addToIndexes();
+		if(!CheckPathConsistency(indexPath)) {
+			System.out.println("Index path could not be created");
+			System.exit(-1);
+		}
 		
-		// TRAINING PERFORMANCE
+		// RESULT file
+		resultFile = FSTool.mergePaths(experimentPath, configMap.get("result-file").toString());
 		EngineResult result = new EngineResult(aJCas);
-		result.setFile(configMap.get("result-file").toString());
+		result.setFile(resultFile);
 		result.addToIndexes();
 		
+		//PERFORMANCE FILE
+		performanceFile = FSTool.mergePaths(experimentPath, configMap.get("performance-file").toString());
 		TrainingRes performance = new TrainingRes(aJCas);
-		performance.setPerformanceFile(configMap.get("performance-file").toString());
+		performance.setPerformanceFile(performanceFile);
 		performance.addToIndexes();
 	
 	}
@@ -87,5 +124,15 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		}
 				
 		return result;
-	} 
+	}
+	
+	private boolean CheckPathConsistency(String path) {
+		if(!FSTool.dirExists(path)){
+			if(!FSTool.mkdir(path)) {
+				System.out.println("%s does not exists and could not be made");
+				return false;
+			}
+		}
+		return true;
+	}
 }

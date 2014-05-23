@@ -20,6 +20,7 @@ public class IndexGenerator extends JCasAnnotator_ImplBase{
 	
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
+		System.gc();
 		// Obtain annotators
 		// INDEX FILES - load and verify
 		FSIndex indexIdx = aJCas.getAnnotationIndex(IndexFiles.type);

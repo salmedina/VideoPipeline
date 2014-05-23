@@ -1,11 +1,11 @@
 # Config file for VideoPipeline AAE
-project-path: E:\VPSpace\Project1
-source-path: E:\VPSpace\Sources\Wolverine
-feat-path: E:\VPSpace\Project1\Feats
-feat-type: SIFT
+experiment-id: 1
+experiment-path: E:\VPSpace\Experiment3
+source-path: E:\VPSpace\Sources\FullAngel
+feat-path: Feats
 img-file-ext: .jpg
-dict-path: E:\VPSpace\Project1\Dict
-vw-path: E:\VPSpace\Project1\VW
-index-path: E:\VPSpace\Project1\Index
-result-file: E:\VPSpace\Project1\training.res
-performance-file: E:\VPSpace\Project1\training.perf
+dict-path: Dict
+vw-path: VW
+index-path: Index
+result-file: training.res
+performance-file: performance.res
