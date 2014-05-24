@@ -2,8 +2,12 @@ package mx.itam.deiis.annotators;
 
 import java.util.Iterator;
 
-import mx.itam.deiis.spark.*;
-import mx.itam.deiis.types.*;
+import mx.itam.deiis.spark.kmeansCreateDictionary;
+import mx.itam.deiis.types.DictFiles;
+import mx.itam.deiis.types.Dictionary;
+import mx.itam.deiis.types.FeatFiles;
+import mx.itam.deiis.types.Performance;
+//import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.Stopwatch;
 

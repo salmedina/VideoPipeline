@@ -24,13 +24,8 @@ public class PerformanceResultsAnnotator extends JCasAnnotator_ImplBase{
 
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
-		AnnotationIndex<Annotation> annot_perf = aJCas.getAnnotationIndex(Performance.type);
-		FSIterator<Annotation> iterate_perfs = annot_perf.iterator();
-		ArrayList<Performance> perfs = new ArrayList<Performance>();
-		Performance ptemp = null;
-		int count=0;
-		TrainingPerformance tperf = new TrainingPerformance(aJCas);
-
+		System.out.println("====================  Performance Results  =====================");
+		
 		///Obtain input annotators
 		// RES FILES - load and verify
 		FSIndex resIdx = aJCas.getAnnotationIndex(TrainingRes.type);
@@ -95,10 +90,17 @@ public class PerformanceResultsAnnotator extends JCasAnnotator_ImplBase{
 
 
 		System.out.println("=================== PERFORMANCE EVALUATION ======================");
-
+		
+		TrainingPerformance tperf = new TrainingPerformance(aJCas);
+		FSIndex perfIdx = aJCas.getAnnotationIndex(Performance.type);
+		Iterator perfIter = perfIdx.iterator();
+		
 		//iterate over CASs to get performance
-		while(iterate_perfs.hasNext()) {
-			ptemp = (Performance)iterate_perfs.next();
+		ArrayList<Performance> perfs = new ArrayList<Performance>();
+		Performance ptemp = null;
+		int count=0;
+		while(perfIter.hasNext()) {
+			ptemp = (Performance)perfIter.next();
 			perfs.add(ptemp);
 			count++;
 		}
