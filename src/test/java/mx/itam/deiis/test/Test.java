@@ -7,6 +7,7 @@ import java.util.Map;
 import org.opencv.core.Core;
 import org.yaml.snakeyaml.Yaml;
 import mx.itam.deiis.utils.FSTool;
+import mx.itam.deiis.utils.HWTool;
 import mx.itam.deiis.utils.SIFTTool;
 
 public class Test {
@@ -16,9 +17,10 @@ public class Test {
 	  //OpenCVTest();
 	  //YAMLTest();
 	  
-	File file1 = new File("E:\\VPSpace\\Experiment1");
-	File file2 = new File(file1, "Sources");
-	System.out.println(file2.getPath());
+	  System.out.println(HWTool.getName());
+	  System.out.println(HWTool.getOSName());
+	  System.out.println(HWTool.getNumCores());
+	  System.out.println(HWTool.getPrettySysMem());
   }
   
   @SuppressWarnings("unused")

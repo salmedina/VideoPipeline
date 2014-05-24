@@ -17,7 +17,18 @@ public class QueryEngine {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required for OpenCV to work
+		//Program requires a query file in YAML format
+		if(args.length < 1) {
+			System.out.println("Usage: Training <config_file>");
+			System.exit(-1);
+		}
+		String queryFile = args[0];
+		if(!FSTool.fileExists(queryFile)) {
+			System.out.printf("Queryfile: %s does not exist\n", queryFile);
+			System.exit(-1);
+		}
+		
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required by OpenCV to work
 		
 		String	sLine;
 		long	startTime = System.currentTimeMillis();
@@ -33,7 +44,11 @@ public class QueryEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
+<<<<<<< HEAD
 	    sLine = FSTool.readFileAsStr("src/main/resources/data/query.yaml");
+=======
+	    sLine = FSTool.readFileAsStr(queryFile);
+>>>>>>> 1d2acbddc5af19d1f27e84da9a21bef01369a86b
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));
 		//while ((sLine = br.readLine()) != null)   {

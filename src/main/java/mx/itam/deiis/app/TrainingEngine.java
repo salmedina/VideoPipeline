@@ -17,6 +17,7 @@ import org.opencv.core.Core;
 public class TrainingEngine {
 
 	public static void main(String [] args) throws Exception {
+		//Program requires a configuration file in YAML format
 		if(args.length < 1) {
 			System.out.println("Usage: Training <config_file>");
 			System.exit(-1);
@@ -27,7 +28,7 @@ public class TrainingEngine {
 			System.exit(-1);
 		}
 		
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required for OpenCV to work
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);	//Required by OpenCV to work
 		
 		String	sLine;
 		long	startTime = System.currentTimeMillis();
