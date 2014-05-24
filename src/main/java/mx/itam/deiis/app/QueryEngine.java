@@ -33,7 +33,7 @@ public class QueryEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
-	    sLine = FSTool.readFileAsStr("E:\\VPSpace\\Configurations\\queryAngel.yaml");
+	    sLine = FSTool.readFileAsStr("src/main/resources/data/query.yaml");
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));
 		//while ((sLine = br.readLine()) != null)   {

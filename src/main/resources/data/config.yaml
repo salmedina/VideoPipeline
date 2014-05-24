@@ -1,7 +1,7 @@
 # Config file for VideoPipeline AAE
 experiment-id: 1
-experiment-path: /Users/IBAGNOG/Desktop/Exp1Exp1
-source-path: /Users/IBAGNOG/Desktop/FullAngel
+experiment-path: /Users/IBAGNOG/Desktop/Exp2
+source-path: /Users/IBAGNOG/Desktop/LargeAngel
 feat-path: Feats
 img-file-ext: .jpg
 dict-path: Dict
