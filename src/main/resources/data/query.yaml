@@ -1,0 +1,8 @@
+# Config file for VideoPipeline AAE
+experiment-id: 1
+query-file: E:\VPSpace\Query\query.jpg
+dict-K: 100
+dict-file: E:\VPSpace\Experiment1\Dict\dictionary.txt
+dict-obj: E:\VPSpace\Experiment1\Dict\kmeans_model.obj
+index-path: E:\VPSpace\Experiment1\Index
+result-file: E:\VPSpace\Query\query.res
