@@ -25,7 +25,7 @@ public class SearchEngine {
   private String mIndexPath = null;
   private IndexSearcher searcher = null;
   private QueryParser parser = null;
-  static int HITS_PER_PAGE = 10;
+  static int HITS_PER_PAGE = 5;
   static String SEARCH_FIELD = "content";
 
   /** Creates a new instance of SearchEngine */
@@ -40,7 +40,7 @@ public class SearchEngine {
   throws IOException, ParseException {
 	BooleanQuery.setMaxClauseCount(Integer.MAX_VALUE);
     Query query = parser.parse(queryString);
-    TopDocs results = searcher.search(query, 5 * HITS_PER_PAGE);
+    TopDocs results = searcher.search(query, HITS_PER_PAGE);
     ScoreDoc[] hits = results.scoreDocs;
     
     int numTotalHits = results.totalHits;

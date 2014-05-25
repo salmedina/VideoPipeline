@@ -69,6 +69,7 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		dictPath = FSTool.mergePaths(experimentPath, configMap.get("dict-path").toString());
 		DictFiles dictFiles= new DictFiles(aJCas);
 		dictFiles.setPath(dictPath);
+		dictFiles.setVwNum(Integer.parseInt(configMap.get("vw-num").toString()));
 		dictFiles.addToIndexes();
 		if(!CheckPathConsistency(dictPath)) {
 			System.out.println("Dictionary path could not be created");
@@ -114,7 +115,7 @@ public class InitAnnotator extends JCasAnnotator_ImplBase{
 		
 		String fields[] = {"experiment-id", "experiment-path", 
 				"source-path", "feat-path", "img-file-ext", 
-				"dict-path","vw-path", "index-path", "result-file","performance-file"};
+				"dict-path","vw-num","vw-path", "index-path", "result-file","performance-file"};
 		
 		for(String field : fields) {
 			if(configMap.get(field) == null) {

@@ -35,7 +35,7 @@ class kmeansCreateDictionary {
     //create kmeans model
     val kmModel: KMeansModel = KMeans.train(parsedData, k, maxIter)
 
-    //get cluster centers i.e. centroids, that correspond to the dictionary
+    //get centroids, that correspond to the dictionary
     //println("Total clusters: " + kmModel.clusterCenters.length)
     kmModel.clusterCenters.foreach { c =>
       //printf("%d : ", id)
