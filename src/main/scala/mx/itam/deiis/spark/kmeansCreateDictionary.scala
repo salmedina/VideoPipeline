@@ -12,29 +12,23 @@ import org.apache.spark.SparkConf
 
 class kmeansCreateDictionary {
 
-  //spark environment
-  val usedCores = Runtime.getRuntime().availableProcessors() - 1 
-  val conf = new SparkConf().setMaster("local[" + usedCores + "]").setAppName("kmeans++").set("spark.executor.memory", "2g")
-  
-  
-  //val sc = new SparkContext("local[" + usedCores + "]", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
-  //val sc = new SparkContext("local", "kmeans_spark", "E:\\MCC\\Semester 4\\IIS\\Workspace\\VPProject\\target\\dependency")
-  // master, appName, sparkHome, jars required
- val sc = new SparkContext(conf)
-  val maxIter = 50
-  var id = 0
-
   def createDictionary(k: Int, sourceFile: String, outFile: String, objectFile: String) {
-
+    //spark environment
+    val usedCores = Runtime.getRuntime().availableProcessors() - 1
+    // master, appName, sparkHome, jars required
+    val conf = new SparkConf().setMaster("local[" + usedCores + "]").setAppName("kmeans++").set("spark.executor.memory", "2g")
+  	val sc = new SparkContext(conf)
+	val maxIter = 50
+	var id = 0
+  
     //read data .sift
     val data = sc.textFile(sourceFile)
     val parsedData = data.map(_.split(',').map(_.toDouble))
 
-    var bw = new BufferedWriter(new FileWriter(outFile))
-
     //create kmeans model
     val kmModel: KMeansModel = KMeans.train(parsedData, k, maxIter)
 
+    var bw = new BufferedWriter(new FileWriter(outFile))
     //get centroids, that correspond to the dictionary
     //println("Total clusters: " + kmModel.clusterCenters.length)
     kmModel.clusterCenters.foreach { c =>
@@ -57,6 +51,8 @@ class kmeansCreateDictionary {
 
     //finish
     kmObjOut.close()
+    sc.clearJars();
+    sc.clearFiles();    
     sc.stop();
   }
 }
