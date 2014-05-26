@@ -12,12 +12,15 @@ import org.apache.spark.SparkConf
 
 class kmeansCreateDictionary {
 
-  def createDictionary(k: Int, sourceFile: String, outFile: String, objectFile: String) {
+  def createDictionary(k: Int, sourceFile: String, outFile: String, objectFile: String, costFile: String) {
+    
     //spark environment
     val usedCores = Runtime.getRuntime().availableProcessors() - 1
-    // master, appName, sparkHome, jars required
+    
+    // Spark configuration( master, appName, sparkHome, jars required )
     val conf = new SparkConf().setMaster("local[" + usedCores + "]").setAppName("kmeans++").set("spark.executor.memory", "2g")
-  	val sc = new SparkContext(conf)
+  	
+    val sc = new SparkContext(conf)
 	val maxIter = 50
 	var id = 0
   
@@ -30,19 +33,24 @@ class kmeansCreateDictionary {
 
     var bw = new BufferedWriter(new FileWriter(outFile))
     //get centroids, that correspond to the dictionary
-    //println("Total clusters: " + kmModel.clusterCenters.length)
+  
+    //Print each vector i.e. cluster center.
     kmModel.clusterCenters.foreach { c =>
-      //printf("%d : ", id)
       id = id + 1
       for (j <- 0 until c.length) {
-        //printf("%.2f ", c(j))
         bw.write(c(j).toInt.toString)
         bw.write(" ")
       }
       bw.write("\n")
-      //println();
     }
     bw.close()
+
+    //calculate Within Set Sum of Squared Error
+    val WSSSE = kmModel.computeCost(parsedData)
+	//printf("WSSSE: %4.2f",WSSSE)
+    var bw2 = new BufferedWriter(new FileWriter(costFile))
+    bw2.write(WSSSE.toString)
+    bw2.close()
 
     //print kmeans object model
     val kmOut: FileOutputStream = new FileOutputStream(objectFile)

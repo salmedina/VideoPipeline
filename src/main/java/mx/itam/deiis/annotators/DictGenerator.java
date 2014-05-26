@@ -1,5 +1,9 @@
 package mx.itam.deiis.annotators;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Iterator;
 
 import mx.itam.deiis.spark.kmeansCreateDictionary;
@@ -7,7 +11,6 @@ import mx.itam.deiis.types.DictFiles;
 import mx.itam.deiis.types.Dictionary;
 import mx.itam.deiis.types.FeatFiles;
 import mx.itam.deiis.types.Performance;
-//import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.FSTool;
 import mx.itam.deiis.utils.Stopwatch;
 
@@ -15,6 +18,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
+//import mx.itam.deiis.utils.FSTool;
 
 
 //public class DictGenerator{
@@ -56,15 +60,29 @@ public class DictGenerator extends JCasAnnotator_ImplBase{
 		String sourceFiles	= FSTool.mergePaths(featPath, "*.sift");
 		String outFile		= FSTool.mergePaths(dictPath, "dictionary.txt");
 		String objectFile	= FSTool.mergePaths(dictPath, "kmeans_model.obj");
+		String costFile		= FSTool.mergePaths(dictPath, "wssse.cost");
 
-		new kmeansCreateDictionary().createDictionary(k, sourceFiles, outFile, objectFile);
+		new kmeansCreateDictionary().createDictionary(k, sourceFiles, outFile, objectFile, costFile);
+		
+		BufferedReader brCost =null;
+		String line="";
+		try{
+			brCost = new BufferedReader(new FileReader(costFile));
+			line = brCost.readLine();
+			brCost.close();
+		}catch(Exception e){
+			System.out.println("Could not read 'wssse.cost' file!");
+		}
 		
 		// Crate DICTIONARY annotation
 		Dictionary dict=new Dictionary(aJCas);
 		dict.setK(k);
 		dict.setObj(objectFile);
 		dict.setTextFile(outFile);
+		dict.setCostFile(costFile);
+		dict.setClusteringCost(Double.parseDouble(line));
 		dict.addToIndexes();
+		
 
 		stopWatch.Stop();
 		System.out.println("====================  Dictionary Generator  =====================");

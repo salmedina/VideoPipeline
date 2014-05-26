@@ -44,11 +44,8 @@ public class QueryEngine {
 		AnalysisEngine anAnalysisEngine = UIMAFramework.produceAnalysisEngine(desc);
 		CAS aCas = anAnalysisEngine.newCAS();
 
-<<<<<<< HEAD
 	    sLine = FSTool.readFileAsStr("src/main/resources/data/query.yaml");
-=======
 	    sLine = FSTool.readFileAsStr(queryFile);
->>>>>>> 1d2acbddc5af19d1f27e84da9a21bef01369a86b
 	    //Feed AAE line by line
 		//BufferedReader br = new BufferedReader(new InputStreamReader(docUrl.openStream()));
 		//while ((sLine = br.readLine()) != null)   {
